@@ -72,11 +72,96 @@ modals.forEach((modal) => {
   });
 });
 
-let calculates = document.querySelectorAll('.calculating__choose_big .calculating__choose-item')
+//userdate
+const user_data = {
+  gender: 'woman'
+}
 
-calculates.forEach(calculet => {
-    calculet.onclick = () => {
-        calculates.forEach(i => i.classList.remove('calculating__choose-item_active'))
-        calculet.classList.add('calculating__choose-item_active')
-    }
+//gender
+const genderBtns = document.querySelectorAll('#gender .calculating__choose-item')
+
+genderBtns.forEach(btn => (
+  btn.onclick = () => {
+    let gender = btn.getAttribute("data-gender")
+    user_data.gender = gender
+
+    setTimeout(() => {
+      genderBtns.forEach(btn => btn.classList.remove('calculating__choose-item_active'))
+    }, 50);
+
+    setTimeout(() => {
+      btn.classList.add('calculating__choose-item_active')
+    }, 200);
+  }
+))
+
+//input
+const inputs = document.querySelectorAll('.calculating__choose_medium .calculating__choose-item')
+inputs.forEach(input => {
+  input.oninput = () => {
+    user_data[input.id] = input.value
+  }
+  input.onclick = () => {
+    input.classList.remove('error')
+  }
 })
+
+//activeType
+const all_act_btns = document.querySelectorAll('.calculating__choose_big .calculating__choose-item')
+
+all_act_btns.forEach(btn => {
+  btn.onclick = () => {
+    let type_active = btn.getAttribute('id')
+    user_data.activity = type_active
+    all_act_btns.forEach(btn => btn.classList.remove('calculating__choose-item_active'))
+    btn.classList.add('calculating__choose-item_active')
+    let allInputsFilled = true;
+    inputs.forEach(input => {
+      if (input.value.length === 0 || parseFloat(input.value) === 0) {
+        input.classList.add('error')
+        allInputsFilled = false;
+      }
+    })
+    if (allInputsFilled) {
+      let BMR = calculateBMR()
+      calc_result.innerHTML = BMR.toFixed()
+    } else {
+      calc_result.innerHTML = '0'
+    }
+  }
+})
+
+// result
+const calc_result = document.querySelector('.calculating__result span')
+
+//calculator
+function calculateBMR() {
+  let BMR = 0;
+  switch (user_data.gender) {
+    case 'man':
+      BMR = 88.36 + (13.4 * user_data.weight) + (4.8 * user_data.height) - (5.7 * user_data.age);
+      break;
+    case 'woman':
+      BMR = 447.6 + (9.2 * user_data.weight) + (3.1 * user_data.height) - (4.3 * user_data.age);
+      break;
+    default:
+      break;
+  }
+  switch (user_data.activity) {
+    case 'low':
+      BMR *= 1.2;
+      break;
+    case 'small':
+      BMR *= 1.375;
+      break;
+    case 'medium':
+      BMR *= 1.55;
+      break;
+    case 'high':
+      BMR *= 1.725;
+      break;
+    default:
+      break;
+  }
+  return BMR;
+}
