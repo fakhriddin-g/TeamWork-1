@@ -73,6 +73,7 @@ a {
   -ms-flex-align: center;
   align-items: center;
   height: 150px;
+  gap: 10px;
   padding: 0 100px; }
 
 .header__left-block {
@@ -447,7 +448,7 @@ a {
   width: 200px; }
 
 .calculating__divider {
-  width: 490px;
+  width: 100%;
   height: 1px;
   margin: 40px auto;
   background-color: rgba(0, 0, 0, 0.2); }
