@@ -25,7 +25,7 @@
   .btn {
     width: 200px; }
   .sidepanel {
-    left: 35px; }
+    left: 30px; }
   .promotion__timer .timer__block {
     width: 80px;
     height: 100px;
@@ -89,8 +89,7 @@
 
 @media only screen and (max-width: 925px) {
   .container {
-    max-width: 600px;
-    background-color: grey; }
+    max-width: 600px; }
   .tabcontainer {
     max-width: 600px; }
   .tabheader {
@@ -106,7 +105,7 @@
   .tabcontent__descr {
     top: 200px;
     right: -105px;
-    width: 300px;
+    width: 320px;
     height: 200px;
     padding: 25px;
     font-size: 18px;
@@ -180,8 +179,7 @@
 
 @media only screen and (max-width: 720px) {
   .container {
-    max-width: 400px;
-    background-color: grey; }
+    max-width: 400px; }
   .tabcontainer {
     max-width: 400px; }
   .tabheader {
@@ -195,8 +193,8 @@
   .tabcontent__descr {
     top: 150px;
     right: -80px;
-    width: 200px;
-    height: 100px;
+    width: 210px;
+    height: 110px;
     padding: 10px;
     font-size: 12px;
     line-height: 12px; }
