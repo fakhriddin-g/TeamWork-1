@@ -13,8 +13,8 @@
                 <img src="icons/logo.svg" alt="Логотип">
             </div>
             <nav class="header__links">
-                <a href="#" class="header__link">Доставка питания</a>
-                <a href="#" class="header__link">Второй пункт</a>
+                <a href="#delivery" class="header__link">Доставка питания</a>
+                <a href="#secontPoint" class="header__link">Второй пункт</a>
             </nav>
         </div>
         <div class="header__right-block">
@@ -63,10 +63,10 @@
                 <div class="tabheader">
                     <h3>Выберите стиль питания</h3>
                     <div class="tabheader__items">
-                        <div class="tabheader__item tabheader__item_active">Фитнес</div>
-                        <div class="tabheader__item">Премиум</div>
-                        <div class="tabheader__item">Постное</div>
-                        <div class="tabheader__item">Сбалансированное</div>
+                        <div data-type="0" class="tabheader__item tabheader__item_active">Фитнес</div>
+                        <div data-type="1" class="tabheader__item">Премиум</div>
+                        <div data-type="2" class="tabheader__item">Постное</div>
+                        <div data-type="3" class="tabheader__item">Сбалансированное</div>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
 
     <div class="divider"></div>
 
-    <div class="offer">
+    <div class="offer" id="secontPoint" >
         <div class="bgc_y"></div>
         <div class="container">
             <div class="offer__text">
@@ -141,27 +141,27 @@
                     Ваш пол
                 </div>
                 <div class="calculating__choose" id="gender">
-                    <div data-gender="woman" class="calculating__choose-item calculating__choose-item_active">Женщина</div>
-                    <div data-gender="man" class="calculating__choose-item">Мужчина</div>
+                    <div data-g="woman" class="calculating__choose-item calculating__choose-item_active">Женщина</div>
+                    <div data-g="man" class="calculating__choose-item">Мужчина</div>
                 </div>
 
                 <div class="calculating__subtitle">
                     Ваша конституция
                 </div>
                 <div class="calculating__choose calculating__choose_medium">
-                    <input type="number" id="height" placeholder="Введите рост" class="calculating__choose-item" required>
-                    <input type="number" id="weight" placeholder="Введите вес"  class="calculating__choose-item" required>
-                    <input type="number" id="age" placeholder="Введите возраст" class="calculating__choose-item" required>
+                    <input type="text" id="height" placeholder="Введите рост" class="calculating__choose-item">
+                    <input type="text" id="weight" placeholder="Введите вес"  class="calculating__choose-item">
+                    <input type="text" id="age" placeholder="Введите возраст" class="calculating__choose-item">
                 </div>
 
                 <div class="calculating__subtitle">
                     Выберите вашу физическая активность
                 </div>
                 <div class="calculating__choose calculating__choose_big">
-                    <div data-active="1.2" id="low" class="calculating__choose-item">Низкая активность </div>
-                    <div data-active="1.375" id="small"  class="calculating__choose-item calculating__choose-item_active">Невысокая активность</div>
-                    <div data-active="1.725" id="medium" class="calculating__choose-item">Умеренная активность</div>
-                    <div data-active="1.9" id="high" class="calculating__choose-item">Высокая активность</div>
+                    <div data-active="1.2" class="calculating__choose-item">Низкая активность </div>
+                    <div data-active="1.375"  class="calculating__choose-item calculating__choose-item_active">Невысокая активность</div>
+                    <div data-active="1.55" class="calculating__choose-item">Умеренная активность</div>
+                    <div data-active="1.7" class="calculating__choose-item">Высокая активность</div>
                 </div>
 
                 <div class="calculating__divider"></div>
@@ -171,7 +171,7 @@
                         Ваша суточная норма калорий:
                     </div>
                     <div class="calculating__result">
-                        <span>2700</span> ккал
+                        <span id="result" >2700</span> ккал
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@
 
     <div class="divider"></div>
 
-    <div class="menu">
+    <div class="menu" id="delivery" >
         <h2 class="title">Наше меню на день</h2>
 
         <div class="menu__field">
@@ -300,6 +300,6 @@
             </div>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    <script src="js/scirpt.js"></script>
 </body>
 </html>
