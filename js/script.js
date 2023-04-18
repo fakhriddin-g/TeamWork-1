@@ -322,18 +322,20 @@ all_act_btns.forEach(btn => {
 function calcBMR() {
     let BMR = 0
 
-    switch (user_data.gender) {
+    const {gender, weight, height, age, activity} = user_data
+
+    switch (gender) {
         case 'man':
-            BMR = 88.36 + (13.4 * user_data.weight) + (4.8 * user_data.height) - (5.7 * user_data.age);
+            BMR = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
             break;
         case 'woman':
-            BMR = 447.6 + (9.2 * user_data.weight) + (3.1 * user_data.height) - (4.3 * user_data.age);
+            BMR = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
             break;
         default:
             break;
     }
 
-    switch (user_data.activity) {
+    switch (activity) {
         case 'low':
             BMR *= 1.2;
             break;
@@ -351,4 +353,3 @@ function calcBMR() {
     }
     return BMR;
 }
-
