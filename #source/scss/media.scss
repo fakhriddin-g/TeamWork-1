@@ -253,6 +253,13 @@
         flex-direction: column;
     }
 
+    .menu__item {
+        width: 320px;
+        min-height: 450px;
+        font-size: 16px;
+        font-weight: 300
+    }
+
     .order__form {
         padding: 0 50px;
     }
@@ -361,6 +368,14 @@
     .offer .bgc_y {
         width: 380px;
     }
+    .promotion .bgc_y {
+        width: 55%;
+        height: 600px;
+        background: rgba(243, 255, 222, .35);
+        z-index: -1;
+        top: -50px;
+        left: 0
+    }
 
     .offer .container {
         flex-direction: column;
@@ -406,17 +421,26 @@
 
     .title {
         font-size: 25px;
-        font-weight: 600;
+        font-weight: 500;
     }
-    .timer{
+
+    .timer {
+        padding-right: 30px;
         flex-direction: column;
         gap: 10px;
     }
 
     .promotion__timer .timer__block {
-        width: 45px;
-        height: 60px;
-        font-size: 12px;
+        width: 80px;
+        height: 80px;
+        font-size: 14px;
+    }
+
+    .promotion__timer .timer__block span {
+        margin-top: 5px;
+        margin-bottom: 0px;
+        font-size: 40px;
+        font-weight: 700
     }
 
     .header__links {
@@ -427,9 +451,4 @@
         min-width: fit-content
     }
 
-    .promotion__timer .timer__block span {
-        font-size: 32px;
-        margin-bottom: 0;
-        margin-top: 5px;
-    }
 }

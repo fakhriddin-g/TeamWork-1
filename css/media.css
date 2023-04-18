@@ -158,6 +158,11 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column; }
+  .menu__item {
+    width: 320px;
+    min-height: 450px;
+    font-size: 16px;
+    font-weight: 300; }
   .order__form {
     padding: 0 50px; }
   .order__input {
@@ -228,6 +233,13 @@
     height: 250px; }
   .offer .bgc_y {
     width: 380px; }
+  .promotion .bgc_y {
+    width: 55%;
+    height: 600px;
+    background: rgba(243, 255, 222, 0.35);
+    z-index: -1;
+    top: -50px;
+    left: 0; }
   .offer .container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -261,24 +273,26 @@
     font-size: 13px; }
   .title {
     font-size: 25px;
-    font-weight: 600; }
+    font-weight: 500; }
   .timer {
+    padding-right: 30px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
     gap: 10px; }
   .promotion__timer .timer__block {
-    width: 45px;
-    height: 60px;
-    font-size: 12px; }
+    width: 80px;
+    height: 80px;
+    font-size: 14px; }
+  .promotion__timer .timer__block span {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 40px;
+    font-weight: 700; }
   .header__links {
     display: none; }
   .header__left-block {
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
-    min-width: fit-content; }
-  .promotion__timer .timer__block span {
-    font-size: 32px;
-    margin-bottom: 0;
-    margin-top: 5px; } }
+    min-width: fit-content; } }
