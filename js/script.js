@@ -1,42 +1,89 @@
+// // carousel
+
+// const slides = document.querySelectorAll('.offer__slide')
+// const offer__slider_prev = document.querySelector('.offer__slider-prev')
+// const offer__slider_next = document.querySelector('.offer__slider-next')
+// const total_slide = document.querySelector('#total')
+// const current = document.querySelector('#current')
+
+// let slideIndex = 0
+// showSlides(slideIndex)
+
+// function showSlides(n) {
+
+//     if (slideIndex > slides.length - 1) {
+//         slideIndex = 0
+//     }
+//     if (slideIndex < 0) {
+//         slideIndex = slides.length - 1
+//     }
+//     current.innerHTML = slideIndex + 1 < 10 ? '0' + (slideIndex + 1) : slideIndex + 1
+//     total_slide.innerHTML = slides.length < 10 ? '0' + slides.length : slides.length
+
+//     slides.forEach(el => el.style.display = "none")
+
+//     slides[slideIndex].style.display = "block"
+//     slides[slideIndex].classList.add('fade')
+// }
+
+
+// offer__slider_next.onclick = () => {
+//     slideIndex++
+
+//     showSlides(slideIndex)
+// }
+// offer__slider_prev.onclick = () => {
+//     slideIndex--
+
+//     showSlides(slideIndex)
+// }
+
 // carousel
 
 const slides = document.querySelectorAll('.offer__slide')
-const offer__slider_prev = document.querySelector('.offer__slider-prev')
-const offer__slider_next = document.querySelector('.offer__slider-next')
-const total_slide = document.querySelector('#total')
+const prev = document.querySelector('.offer__slider-prev')
+const next = document.querySelector('.offer__slider-next')
 const current = document.querySelector('#current')
+const total = document.querySelector('#total')
 
-let slideIndex = 0
-showSlides(slideIndex)
+let i = 0
+
+showSlides()
 
 function showSlides(n) {
 
-    if (slideIndex > slides.length - 1) {
-        slideIndex = 0
+    if (i > slides.length - 1) {
+        i = 0
     }
-    if (slideIndex < 0) {
-        slideIndex = slides.length - 1
+
+    if (i < 0) {
+        i = slides.length - 1
     }
-    current.innerHTML = slideIndex + 1 < 10 ? '0' + (slideIndex + 1) : slideIndex + 1
-    total_slide.innerHTML = slides.length < 10 ? '0' + slides.length : slides.length
 
-    slides.forEach(el => el.style.display = "none")
+    current.innerHTML = i + 1 < 10 ? '0' + (i + 1) : i + 1
+    total.innerHTML = slides.length < 10 ? '0' + (slides.length) : slides.length
 
-    slides[slideIndex].style.display = "block"
-    slides[slideIndex].classList.add('fade')
+    slides.forEach(slide => slide.style.display = 'none')
+
+    slides[i].style.display = 'block'
+    slides[i].classList.add('fade')
+
 }
 
+prev.onclick = () => {
 
-offer__slider_next.onclick = () => {
-    slideIndex++
+    i--
+    showSlides()
 
-    showSlides(slideIndex)
 }
-offer__slider_prev.onclick = () => {
-    slideIndex--
 
-    showSlides(slideIndex)
+next.onclick = () => {
+
+    i++
+    showSlides()
+
 }
+
 // modal
 
 const btns = document.querySelectorAll("button[data-modal]")
@@ -62,104 +109,187 @@ btns.forEach(btn => {
 
 })
 
+// // tabs
+
+// const tabheader__items = document.querySelectorAll('.tabheader__item')
+// const tab__contents = document.querySelectorAll(".tabcontent")
+
+// let tabIndex = 0
+
+// showtabs()
+// function showtabs(n) {
+
+//     tab__contents.forEach(el => {
+//         el.style.display = "none"
+
+//         tab__contents[tabIndex].style.display = "block"
+//         tab__contents[tabIndex].classList.add('fade')
+//     })
+
+// }
+
+// tabheader__items.forEach((btn, i) => {
+
+//     btn.addEventListener('click', () => {
+
+//         document.querySelector('.tabheader__item_active')?.classList.remove('tabheader__item_active')
+//         btn.classList.add('tabheader__item_active')
+//         tabIndex = i
+//         showtabs()
+//     })
+
+
+// })
+
 // tabs
 
-const tabheader__items = document.querySelectorAll('.tabheader__item')
-const tab__contents = document.querySelectorAll(".tabcontent")
-
-let tabIndex = 0
-
+const tabs = document.querySelectorAll('.tabcontent')
+const items = document.querySelectorAll('.tabheader__item')
+let index = 0
 showtabs()
+
 function showtabs(n) {
-
-    tab__contents.forEach(el => {
-        el.style.display = "none"
-
-        tab__contents[tabIndex].style.display = "block"
-        tab__contents[tabIndex].classList.add('fade')
-    })
-
+    tabs.forEach(tab => tab.style.display = 'none')
+    tabs[index].style.display = 'block'
+    tabs[index].classList.add('fade')
 }
-
-tabheader__items.forEach((btn, i) => {
-
-    btn.addEventListener('click', () => {
-
-        document.querySelector('.tabheader__item_active')?.classList.remove('tabheader__item_active')
-        btn.classList.add('tabheader__item_active')
-        tabIndex = i
+items.forEach((el, i) => {
+    el.onclick = () => {
+        items.forEach(el => el.classList.remove('tabheader__item_active'))
+        el.classList.add('tabheader__item_active')
+        index = i
+        console.log(index);
         showtabs()
-    })
-
-
+    }
 })
+
+// // calc
+
+// const genderBtns = document.querySelectorAll('#gender .calculating__choose-item')
+// const inputs = document.querySelectorAll('.calculating__choose_medium .calculating__choose-item')
+// const all_act_btns = document.querySelectorAll('.calculating__choose_big .calculating__choose-item')
+// const calc_result = document.querySelector('.calculating__result span')
+// let BMR = 0
+// const user_data = {
+//     gender: 'woman'
+// }
+
+// genderBtns.forEach(btn => (
+//     btn.onclick = () => {
+//         let gender = btn.getAttribute("data-gender")
+//         user_data.gender = gender
+
+//         setTimeout(() => {
+//             genderBtns.forEach(btn => btn.classList.remove('calculating__choose-item_active'))
+//         }, 50);
+
+//         setTimeout(() => {
+//             btn.classList.add('calculating__choose-item_active')
+//         }, 200);
+//     }
+// ))
+
+// inputs.forEach(input => {
+//     input.oninput = () => {
+//         user_data[input.id] = input.value
+//     }
+//     input.onclick = () => {
+//         input.classList.remove('error')
+//     }
+// })
+
+// function calculateBMR() {
+//     let BMR = 0;
+//     switch (user_data.gender) {
+//         case 'man':
+//             BMR = 88.36 + (13.4 * user_data.weight) + (4.8 * user_data.height) - (5.7 * user_data.age);
+//             break;
+//         case 'woman':
+//             BMR = 447.6 + (9.2 * user_data.weight) + (3.1 * user_data.height) - (4.3 * user_data.age);
+//             break;
+//         default:
+//             break;
+//     }
+//     switch (user_data.activity) {
+//         case 'low':
+//             BMR *= 1.2;
+//             break;
+//         case 'small':
+//             BMR *= 1.375;
+//             break;
+//         case 'medium':
+//             BMR *= 1.55;
+//             break;
+//         case 'high':
+//             BMR *= 1.725;
+//             break;
+//         default:
+//             break;
+//     }
+//     return BMR;
+// }
+
+// all_act_btns.forEach(btn => {
+//     btn.onclick = () => {
+//         let act = btn.getAttribute('id')
+//         user_data.activity = act
+//         setTimeout(() => {
+//             all_act_btns.forEach(btn => btn.classList.remove('calculating__choose-item_active'))
+//         }, 50);
+
+//         setTimeout(() => {
+//             btn.classList.add('calculating__choose-item_active')
+//         }, 200);
+
+//         let allInputsFilled = true;
+//         inputs.forEach(input => {
+//             if (input.value.length === 0 || parseFloat(input.value) === 0) {
+//                 input.classList.add('error')
+//                 allInputsFilled = false;
+//             }
+//         })
+
+//         if (allInputsFilled) {
+//             let BMR = calculateBMR()
+//             calc_result.innerHTML = BMR.toFixed()
+//         } else {
+//             calc_result.innerHTML = '0'
+//         }
+//     }
+// })
 
 // calc
 
+////// gender
+
 const genderBtns = document.querySelectorAll('#gender .calculating__choose-item')
-const inputs = document.querySelectorAll('.calculating__choose_medium .calculating__choose-item')
-const all_act_btns = document.querySelectorAll('.calculating__choose_big .calculating__choose-item')
-const calc_result = document.querySelector('.calculating__result span')
-let BMR = 0
 const user_data = {
-    gender: 'woman'
+    gender: "woman"
 }
-
-genderBtns.forEach(btn => (
+genderBtns.forEach(btn => {
     btn.onclick = () => {
-        let gender = btn.getAttribute("data-gender")
+        let gender = btn.getAttribute('data-gender')
         user_data.gender = gender
-
         setTimeout(() => {
-            genderBtns.forEach(btn => btn.classList.remove('calculating__choose-item_active'))
+            genderBtns.forEach(btn => btn.classList.remove("calculating__choose-item_active"))
         }, 50);
-
         setTimeout(() => {
-            btn.classList.add('calculating__choose-item_active')
+            btn.classList.add("calculating__choose-item_active")
         }, 200);
-    }
-))
-
-inputs.forEach(input => {
-    input.oninput = () => {
-        user_data[input.id] = input.value
-    }
-    input.onclick = () => {
-        input.classList.remove('error')
     }
 })
 
-function calculateBMR() {
-    let BMR = 0;
-    switch (user_data.gender) {
-        case 'man':
-            BMR = 88.36 + (13.4 * user_data.weight) + (4.8 * user_data.height) - (5.7 * user_data.age);
-            break;
-        case 'woman':
-            BMR = 447.6 + (9.2 * user_data.weight) + (3.1 * user_data.height) - (4.3 * user_data.age);
-            break;
-        default:
-            break;
-    }
-    switch (user_data.activity) {
-        case 'low':
-            BMR *= 1.2;
-            break;
-        case 'small':
-            BMR *= 1.375;
-            break;
-        case 'medium':
-            BMR *= 1.55;
-            break;
-        case 'high':
-            BMR *= 1.725;
-            break;
-        default:
-            break;
-    }
-    return BMR;
-}
+const inputs = document.querySelectorAll('.calculating__choose_medium input')
 
+inputs.forEach(inp => {
+    inp.oninput = () => {
+        user_data[inp.id] = inp.value
+        inp.classList.remove('error')
+    }
+})
+
+const all_act_btns = document.querySelectorAll('.calculating__choose_big .calculating__choose-item')
+const calc_result = document.querySelector('.calculating__result span')
 all_act_btns.forEach(btn => {
     btn.onclick = () => {
         let act = btn.getAttribute('id')
@@ -181,10 +311,44 @@ all_act_btns.forEach(btn => {
         })
 
         if (allInputsFilled) {
-            let BMR = calculateBMR()
+            let BMR = calcBMR()
             calc_result.innerHTML = BMR.toFixed()
         } else {
             calc_result.innerHTML = '0'
         }
     }
 })
+
+function calcBMR() {
+    let BMR = 0
+
+    switch (user_data.gender) {
+        case 'man':
+            BMR = 88.36 + (13.4 * user_data.weight) + (4.8 * user_data.height) - (5.7 * user_data.age);
+            break;
+        case 'woman':
+            BMR = 447.6 + (9.2 * user_data.weight) + (3.1 * user_data.height) - (4.3 * user_data.age);
+            break;
+        default:
+            break;
+    }
+
+    switch (user_data.activity) {
+        case 'low':
+            BMR *= 1.2;
+            break;
+        case 'small':
+            BMR *= 1.375;
+            break;
+        case 'medium':
+            BMR *= 1.55;
+            break;
+        case 'high':
+            BMR *= 1.725;
+            break;
+        default:
+            break;
+    }
+    return BMR;
+}
+
