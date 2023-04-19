@@ -165,3 +165,44 @@ function calculateBMR() {
   }
   return BMR;
 }
+
+let timers = document.querySelectorAll('.timer__block span')
+
+console.log(timers[0].innerHTML);
+
+const deadline = `2023-4-30 00:00`
+console.log(deadline);
+
+function getTime(endtime) {
+  const t = Date.parse(endtime) - Date.parse(new Date()),
+    days = Math.round((t / 1000) / 60 / 60 / 24),
+    hours = Math.round((t / 1000) / 60 / 60 % 24),
+    minutes = Math.round((t / 1000) / 60 % 60),
+    seconds = Math.round((t / 1000) % 60)
+  return {
+    t,
+    days,
+    hours,
+    minutes,
+    seconds
+  }
+}
+
+function showTime(endTime, selector) {
+  const timer = document.querySelector(selector),
+    days = timer.querySelector('#days')
+  hours = timer.querySelector('#hours')
+  minutes = timer.querySelector('#minutes')
+  seconds = timer.querySelector('#seconds')
+  interval = setInterval(setTime, 1000)
+
+  function setTime() {
+    const t = getTime(endTime)
+    days.innerHTML = t.days
+    hours.innerHTML = t.hours
+    minutes.innerHTML = t.minutes
+    seconds.innerHTML = t.seconds
+  }
+}
+
+showTime(deadline, '.timer')
