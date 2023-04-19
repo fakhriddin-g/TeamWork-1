@@ -166,10 +166,7 @@ function calculateBMR() {
   return BMR;
 }
 
-let timers = document.querySelectorAll('.timer__block span')
-
-console.log(timers[0].innerHTML);
-
+//timer
 const deadline = `2023-4-30 00:00`
 console.log(deadline);
 
