@@ -321,19 +321,19 @@ all_act_btns.forEach(btn => {
 
 function calcBMR() {
     let BMR = 0
-
-    switch (user_data.gender) {
+    const { gender, weight, height, age, activity } = user_data
+    switch (gender) {
         case 'man':
-            BMR = 88.36 + (13.4 * user_data.weight) + (4.8 * user_data.height) - (5.7 * user_data.age);
+            BMR = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
             break;
         case 'woman':
-            BMR = 447.6 + (9.2 * user_data.weight) + (3.1 * user_data.height) - (4.3 * user_data.age);
+            BMR = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
             break;
         default:
             break;
     }
 
-    switch (user_data.activity) {
+    switch (activity) {
         case 'low':
             BMR *= 1.2;
             break;
@@ -352,3 +352,56 @@ function calcBMR() {
     return BMR;
 }
 
+// liteTimer
+
+// let h = 1, m = 1, s = 10,
+//     timer = setInterval(() => {
+//         s--
+//         console.log(`${h}:${m}:${s}`);
+//         if (s === 0) {
+//             s = 59
+//             m--
+//             if (m === -1) {
+//                 m = 59
+//                 h--
+//                 if (h <= -1) {
+//                     clearInterval(timer)
+//                 }
+//             }
+//         }
+//     }, 0);
+
+//timer
+const deadline = "2023-05-20 00:00"
+function getTime(endTIme) {
+
+    const t = Date.parse(endTIme) - Date.parse(new Date),
+        days = Math.floor((t / 1000) / 60 / 60 / 24),
+        hours = Math.floor((t / 1000) / 60 / 60 % 24),
+        minutes = Math.floor((t / 1000) / 60 % 60),
+        seconds = Math.floor((t / 1000) % 60);
+
+    return {
+        t, days, hours, minutes, seconds
+    }
+
+}
+function showTime(endTime, selector) {
+    const timer = document.querySelector(selector),
+        days = timer.querySelector('#days'),
+        hours = timer.querySelector('#hours'),
+        minutes = timer.querySelector('#minutes'),
+        seconds = timer.querySelector('#seconds'),
+        interval = setInterval(setTime, 1000);
+    console.log(interval);
+
+
+    function setTime() {
+        const t = getTime(endTime)
+        days.innerHTML = t.days
+        hours.innerHTML = t.hours
+        minutes.innerHTML = t.minutes
+        seconds.innerHTML = t.seconds
+    }
+}
+showTime(deadline, ".timer")

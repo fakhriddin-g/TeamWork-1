@@ -40,9 +40,6 @@
         width: 200px;
     }
 
-    .sidepanel {
-        left: 30px;
-    }
 
     .promotion__timer .timer__block {
         width: 80px;
@@ -366,8 +363,9 @@
     }
 
     .offer .bgc_y {
-        width: 380px;
+        width: 100%;
     }
+
     .promotion .bgc_y {
         width: 55%;
         height: 600px;
@@ -451,4 +449,13 @@
         min-width: fit-content
     }
 
+    .sidepanel {
+        left: 95%;
+        bottom: -20%;
+        rotate: 90deg;
+    }
+
+    .sidepanel__icon {
+        rotate: -90deg;
+    }
 }
