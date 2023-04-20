@@ -372,19 +372,22 @@ function calcBMR() {
 //     }, 0);
 
 //timer
-const deadline = "2023-05-20 00:00"
-function getTime(endTIme) {
+const deadline = "2023-04-20 13:49"
+function getTime(endTime) {
 
-    const t = Date.parse(endTIme) - Date.parse(new Date),
+    const t = Date.parse(endTime) - Date.parse(new Date),
         days = Math.floor((t / 1000) / 60 / 60 / 24),
         hours = Math.floor((t / 1000) / 60 / 60 % 24),
         minutes = Math.floor((t / 1000) / 60 % 60),
         seconds = Math.floor((t / 1000) % 60);
-
-    return {
-        t, days, hours, minutes, seconds
-    }
-
+        
+        return {
+            t,
+            days,
+            hours,
+            minutes,
+            seconds
+        }
 }
 function showTime(endTime, selector) {
     const timer = document.querySelector(selector),
@@ -393,8 +396,6 @@ function showTime(endTime, selector) {
         minutes = timer.querySelector('#minutes'),
         seconds = timer.querySelector('#seconds'),
         interval = setInterval(setTime, 1000);
-    console.log(interval);
-
 
     function setTime() {
         const t = getTime(endTime)
@@ -402,6 +403,12 @@ function showTime(endTime, selector) {
         hours.innerHTML = t.hours
         minutes.innerHTML = t.minutes
         seconds.innerHTML = t.seconds
+        if (seconds.innerHTML <= 0) {
+            t.t = 0
+            console.log(t.t);
+            clearInterval(interval)
+        }
+
     }
 }
 showTime(deadline, ".timer")
