@@ -132,3 +132,51 @@ function calc(ratio, input) {
 
 
 }
+
+// Promotion Timer
+const deadline = "2023-04-21 13:28"
+function getTime(endTime) {
+  const t = Date.parse(endTime) - Date.parse(new Date()),
+    days = Math.round((t / 1000) / 60 / 60 / 24),
+    hours = Math.round((t / 1000) / 60 / 60 % 24),
+    minutes = Math.round(((t - 30000) / 1000) / 60 % 60),
+    seconds = Math.round((t / 1000) % 60);
+
+  return{
+    t,
+    days,
+    hours,
+    minutes,
+    seconds
+  }
+}
+
+function showTime(endTime, selector) {
+  const timer = document.querySelector(selector),
+    days = timer.querySelector('#days'),
+    hours = timer.querySelector('#hours'),
+    minutes = timer.querySelector('#minutes'),
+    seconds = timer.querySelector('#seconds'),
+    interval = setInterval(setTime, 1000)
+    
+  function setTime() {
+    const t = getTime(endTime)
+    days.innerHTML = t.days
+    hours.innerHTML = t.hours
+    minutes.innerHTML = t.minutes
+    seconds.innerHTML = t.seconds
+    
+    stopTime(t.t, interval)
+  }
+}
+
+showTime(deadline, '.timer')
+
+function stopTime(endPromotion, interval) {
+  if (endPromotion < interval) {
+    days.innerHTML = 0
+    hours.innerHTML = 0
+    minutes.innerHTML = 0
+    seconds.innerHTML = 0
+  }
+}
