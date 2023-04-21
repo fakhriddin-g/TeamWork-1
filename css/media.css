@@ -295,8 +295,6 @@
     min-width: -moz-fit-content;
     min-width: fit-content; }
   .sidepanel {
-    left: 95%;
-    bottom: -20%;
-    rotate: 90deg; }
-  .sidepanel__icon {
-    rotate: -90deg; } }
+    position: absolute;
+    bottom: -257%;
+    left: 0; } }
