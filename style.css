@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.top-text {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.top-text p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin-top: 10px;
+}
+
+.top-h1 {
+    text-align: center;
+    margin-top: 72px;
+}
+
+.top-h1 h1 {
+    font-size: 46px;
+    font-weight: 500;
+}
+
+input {
+    width: 277px;
+    height: 59px;
+    background: #FFFFFF;
+    border: 2px solid #543FD3;
+    border-radius: 4px;
+    margin: 73px 125px 6px -140px;
+    padding: 20px 12px;
+    animation: baloon 3s 0s ease;
+}
+
+form {
+    margin-bottom: 144px;
+    width: 800px;
+}
+
+label p {
+    margin: 0px 0 -70px 50px;
+}
+
+.input-block {
+    display: flex;
+}
+
+.p-input {
+    margin: 50px 0 0 0;
+    width: 140px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4200FF;
+    animation: p-animate 2s 0s;
+}
+
+.main-block {
+    display: flex;
+}
+
+.fill {
+    font-size: 14px;
+    margin-left: 327px;
+    animation: p-animate 3s 0s;
+}
+
+.need {
+    font-size: 14px;
+    opacity: 1;
+    animation: p-animate 3s 0s;
+}
+
+.fill-2 {
+    font-size: 14px;
+    margin-left: 402px;
+    animation: p-animate 3s 0s;
+}
+
+.main-btn {
+    background: #4200FF;
+    border: 2px solid #4200FF;
+    border-radius: 4px;
+    align-items: center;
+    padding: 20px 12px;
+    width: 277px;
+    height: 59px;
+    color: white;
+    margin: 27px 0 0 -120px;
+}
+
+.btn-main {
+    text-align: center;
+}
+
+
+@keyframes baloon {
+    0% {
+        margin-top: -1000px;
+        width: 70px;
+        height: 70px;
+        transform: rotate(2080deg);
+        border-radius: 10px;
+    }
+    50% {
+        margin-top: 70px;
+        border-radius: 20px;
+        width: 70px;
+        height: 70px;
+        transform: rotate(1080deg);
+        margin-right: 80px;
+        margin-left: 10px;
+    }
+    100% {
+        border-radius: 4px;
+        transform: rotate(1080deg);
+    }
+}
+
+
+@keyframes p-animate {
+    0% {
+        opacity: 0;
+        margin-top: 200px;
+    }
+    100% {
+        margin-bottom: 70px;
+        opacity: 1;
+    }
+}
