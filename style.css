@@ -50,7 +50,6 @@ input {
     border-radius: 4px;
     margin: 73px 125px 6px -140px;
     padding: 20px 12px;
-    animation: baloon 3s 0s ease;
 }
 
 form {
@@ -113,6 +112,21 @@ label p {
     text-align: center;
 }
 
+.top {
+    animation: baloon 3s 0s ease;
+}
+
+.right {
+    animation: baloon-right 3s 0s ease;
+}
+
+.left {
+    animation: baloon-left 3s 0s ease;
+}
+
+.bottom {
+    animation: baloon-bottom 3s 0s ease;
+}
 
 @keyframes baloon {
     0% {
@@ -129,6 +143,72 @@ label p {
         height: 70px;
         transform: rotate(1080deg);
         margin-right: 80px;
+        margin-left: 10px;
+    }
+    100% {
+        border-radius: 4px;
+        transform: rotate(1080deg);
+    }
+}
+
+@keyframes baloon-right {
+    0% {
+        margin-left: 2000px;
+        width: 70px;
+        height: 70px;
+        transform: rotate(2080deg);
+        border-radius: 10px;
+    }
+    50% {
+        margin-right: 70px;
+        border-radius: 20px;
+        width: 70px;
+        height: 70px;
+        transform: rotate(1080deg);
+        margin-left: 20px;
+    }
+    100% {
+        border-radius: 4px;
+        transform: rotate(1080deg);
+    }
+}
+
+@keyframes baloon-left {
+    0% {
+        margin-left: -1000px;
+        width: 70px;
+        height: 70px;
+        transform: rotate(2080deg);
+        border-radius: 10px;
+    }
+    50% {
+        margin-right: 70px;
+        border-radius: 20px;
+        width: 70px;
+        height: 70px;
+        transform: rotate(1080deg);
+        margin-left: 10px;
+    }
+    100% {
+        border-radius: 4px;
+        transform: rotate(1080deg);
+    }
+}
+
+@keyframes baloon-bottom {
+    0% {
+        margin-top: 400px;
+        width: 70px;
+        height: 70px;
+        transform: rotate(2080deg);
+        border-radius: 10px;
+    }
+    50% {
+        margin-right: 70px;
+        border-radius: 20px;
+        width: 70px;
+        height: 70px;
+        transform: rotate(1080deg);
         margin-left: 10px;
     }
     100% {
