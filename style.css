@@ -52,6 +52,13 @@ input {
     padding: 20px 12px;
 }
 
+.img-error {
+    position: absolute;
+    top: 93px;
+    right: 93px;
+    display: none;
+}
+
 form {
     margin-bottom: 144px;
     width: 800px;
@@ -63,6 +70,7 @@ label p {
 
 .input-block {
     display: flex;
+    position: relative;
 }
 
 .p-input {
@@ -106,6 +114,34 @@ label p {
     height: 59px;
     color: white;
     margin: 27px 0 0 -120px;
+    transition: .3s;
+}
+
+.main-btn:hover {
+    background-color: white;
+    color: #4200FF;
+    font-weight: 600;
+    box-shadow: 0 0 10px 10px #4200FF;
+}
+
+.red-btn {
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    border-radius: 4px;
+    align-items: center;
+    padding: 20px 12px;
+    width: 277px;
+    height: 59px;
+    transition: .3s;
+    margin: 27px 0 0 -120px;
+}
+
+.red-btn:hover {
+    box-shadow: 0 0 10px 10px red;
+    background-color: white;
+    color: red;
+    font-weight: 600;
 }
 
 .btn-main {
