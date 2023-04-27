@@ -16,6 +16,11 @@ a {
 .container {
     width: 700px;
     margin: 0 auto;
+    animation: boom 3s 0s;
+}
+
+.balon {
+    animation: opc 3s 0s;
 }
 
 .top-text {
@@ -46,7 +51,7 @@ input {
     width: 277px;
     height: 59px;
     background: #FFFFFF;
-    border: 2px solid #543FD3;
+    border: 3px solid #543FD3;
     border-radius: 4px;
     margin: 73px 125px 6px -140px;
     padding: 20px 12px;
@@ -149,19 +154,19 @@ label p {
 }
 
 .top {
-    animation: baloon 3s 0s ease;
+    animation: baloon 3s 3s ease;
 }
 
 .right {
-    animation: baloon-right 3s 0s ease;
+    animation: baloon-right 3s 3s ease;
 }
 
 .left {
-    animation: baloon-left 3s 0s ease;
+    animation: baloon-left 3s 3s ease;
 }
 
 .bottom {
-    animation: baloon-bottom 3s 0s ease;
+    animation: baloon-bottom 3s 3s ease;
 }
 
 @keyframes baloon {
@@ -263,4 +268,79 @@ label p {
         margin-bottom: 70px;
         opacity: 1;
     }
+}
+
+@keyframes boom {
+    0% {
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+        background-color: red;
+    }    
+    25% {
+        height: 200px;
+        width: 200px;
+        border-radius: 200px;
+        background-color: red;
+    }
+    50% {
+        height: 500px;
+        width: 500px;
+        border-radius: 500px;
+        background-color: red;
+        background-size: 0;
+    } 
+    75% {
+        height: 1000px;
+        width: 1000px;
+        border-radius: 500px;
+        background-size: 0;
+        background-color: red;
+    }
+    90%{
+        height: 1500px;
+        width: 1500px;
+        border-radius: 1500px;
+        background-size: 0;
+        background-color: red;
+    }
+    100% {
+        
+        height: 1000px;
+        width: 1000px;
+        border-radius: 1000px;
+        background-image: url(./icon/knall-51702560.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@keyframes opc {
+   from {
+    opacity: 0;
+   }   
+   to {
+    opacity: 0;
+   }
+}
+
+
+
+
+
+.search-block {
+    width: 90%;
+    text-align: center;
+    margin-left: 220px;
+    margin-bottom: 50px;
+}
+
+.lor-p {
+    margin: 50px 250px 0 0;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.search-block h1 {
+    margin: 50px 260px 0 0;
 }
