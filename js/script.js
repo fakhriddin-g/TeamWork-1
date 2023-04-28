@@ -180,3 +180,39 @@ function stopTime(endPromotion, interval) {
     seconds.innerHTML = 0
   }
 }
+
+// Forms
+const form = document.forms.sign_up
+const dataInputs = form.querySelectorAll('input')
+
+form.onsubmit = (event) => {
+  event.preventDefault()
+
+  let errors = ''
+
+  dataInputs.forEach(inp => {
+    inp.style.border = '2px solid green'
+    if (inp.value.length === 0) {
+      inp.style.border = '2px solid red'
+      errors +=  ` ${inp.name}`
+    }
+  })
+
+  if (!errors) {
+    submit()
+  } else {
+    alert("You didn't fill " + errors)
+  }
+}
+
+function submit() {
+  let user = {}
+
+  let db = new FormData(form)
+
+  db.forEach((value, key) => {
+    user[key] = value
+  })
+
+  console.log(user);
+}
